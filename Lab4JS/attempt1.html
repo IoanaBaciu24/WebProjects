@@ -1,0 +1,63 @@
+<html>
+
+    <head>
+
+
+    </head>
+    <body>
+        <div id = "linkdiv">
+            <ul id = "list1">
+            <li><a href="http://www.scs.ubbcluj.ro" class="link">be gone</a></li>
+            <li><a href="http://www.cs.ubbcluj.ro" class="link">oke</a></li>
+            <li><a href="http://www.scs.ubbcluj.ro/webmail/" class="link">be gone</a></li>
+            <li><a href="http://www.youtube.com" class="link">oke</a></li>
+            <li><a href="http://www.wikipedia.org" class="link">oke</a></li>
+            <li><a href="http://www.scs.ubbcluj.ro" class="link">be gone</a></li>
+             </ul>   
+            <button onclick="func()">le buton</button>
+
+            <script>
+                var all = document.getElementsByTagName("a");
+                //console.log(all);
+                function func(){
+                   
+                   while(check_list(all)){ 
+                    for (var i=0, max = all.length ;i< max ; i++){
+                        //console.log(all[i]);
+                        //console.log(all);
+                            if(all[i]!=undefined){
+                                if(check_in_tag(all[i])){     
+                                    all[i].parentNode.removeChild(all[i]);
+                                    }
+                                }
+                            //console.log(all[i].getAttribute("href"))
+                    }
+                 
+                   }
+                }
+                function check_in_tag(element)
+                {
+                    let txt = element.getAttribute("href");
+                    return txt.startsWith("http://www.scs.ubbcluj.ro")
+                    
+                }
+
+                function check_list(lst)
+                {
+                    for(let i=0, max = lst.length;i<max;i++){
+                        if(lst[i] !=undefined)
+                        {
+                            if(check_in_tag(lst[i])){return true;}
+
+                        }
+                    }
+                    return false;
+                }
+                   
+
+                
+
+            </script>
+    </div>
+    </body>
+</html>

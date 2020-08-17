@@ -1,0 +1,29 @@
+.table{
+    display: flex;
+
+    -ms-flex-align: center;
+
+}
+
+.cell{
+    width: 100px;
+    padding-top: 100px;
+    font-family: Tahoma;
+}
+
+#p0{
+    font-family: Tahoma;
+    font-size: 30px;
+    color: 	 #330066;
+}
+
+#p1{
+    font-family: Tahoma;
+    font-size: 20px;
+    color: 	 #330066;
+}
+
+body{
+    background-color: #ffe6ff;
+}
+

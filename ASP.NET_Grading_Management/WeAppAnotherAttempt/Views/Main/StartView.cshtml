@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "StartView";
+}
+
+<html>
+
+<head>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+ 
+
+    <title>start screen</title>
+
+    <style>
+        body {
+            background-color: #ffe6ff;
+        }
+
+        #div1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-style: groove;
+            border-color: #ffdacc;
+            margin-top: 100px;
+            margin-left: 230px;
+            padding-left: 360px;
+            margin-right: 300px;
+            border-radius: 10px;
+            background-color: #ffe6e6;
+        }
+
+        #p1 {
+            font-family: "Tahoma";
+            font-size: 20px;
+            margin-left: 30px;
+            color: #262626;
+        }
+
+        .btn {
+            background-color: #FFA07A; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <h4 id="p1">Whomst are you?</h4><br><br>
+        <p>
+            <button onclick ="loginStudent()"id="sbtn" type="button" class="btn">Student</button>
+            <button OnClick ="loginTeacher()" id="pbtn" type="button" class="btn">Teacher</button>
+        </p>
+
+        <script>
+               $(document).ready(function () {
+                   $("#s").click(function () {
+                       $.ajax({ url: "/Main/LoginStudent" }).done(function () {
+                           console.log('ni ahe');
+                       });
+                          
+                   });
+            });
+
+               function loginStudent() {
+                   //$.ajax({
+                   //    url: "/Main/LoginStudent",
+                   //}).done(function () {
+                   //    alert('miau');
+                   //});
+                   window.location.href = "/Main/LoginStudent";
+               }
+               function loginTeacher() {
+                   //$.ajax({
+                   //    url: "/Main/LoginStudent",
+                   //}).done(function () {
+                   //    alert('miau');
+                   //});
+                   window.location.href = "/Main/LoginTeacher";
+               }
+        </script>
+
+    </div>
+</body>
+
+</html>
+

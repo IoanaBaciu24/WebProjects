@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div id = "presentation">
+  <h1>Click the birb!</h1>
+  <p id = "p1"> Score: 0</p>
+</div>
+
+<div id = "gamespace">
+
+
+
+</div>
+
+<script>
+  var score = 0
+  var x=100;
+  var y=100 ;
+
+  $(document).ready(function(){
+
+      // x = randX();
+      // y = randY();
+      // console.log(x,y);
+      // $("#gamespace").append('<img src = "birb.jpg" style="position:absolute; top:'+x+'px; left:'+y+'px;">');
+      // $("#gamespace").on("click", "img", function(){score++; document.getElementById("p1").innerHTML = "Score: "+score;});
+
+      $("#gamespace").append('<img src = "birb.jpg" id = "birb" style="position:absolute; top:'+x+'px; left:'+y+'px; width:200px; ">');
+        run();
+        $("#gamespace").on("click", "img", function(){score++; if(score<=10){document.getElementById("p1").innerHTML = "Score: "+score;}});  
+        
+       
+        
+      
+
+  });
+
+  function run(){
+      x = randX();
+      y = randY();
+      console.log(x,y);
+     
+      $("#birb").animate({left:x+"px", top: y+"px"}, 1);
+      //$("#birb").animate({left:"-=100"}, 100);
+      
+      if(score >= 10)
+      {
+        document.getElementById("p1").innerHTML = "10 points, good job!!!";
+        throw new Error("gata");}
+      t = setTimeout(run, 1000); // todo: canceltimeout
+
+  }
+
+//   function sleep(milliseconds) {
+//   const date = Date.now();
+//   let currentDate = null;
+//   do {
+//     currentDate = Date.now();
+//   } while (currentDate - date < milliseconds);
+// }
+
+  function randX(){
+    // var a =  Math.floor(Math.random()*300);
+    // if(a%2==0)
+    //   return -a;
+    // else a;
+
+    return Math.floor(Math.random()*900);
+    
+  }
+  function randY(){
+    return  Math.floor(Math.random()*700);
+
+  }
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "StudentPage";
+}
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+
+    <style>
+        body {
+            background-color: #ffe6ff;
+        }
+
+        #tbl {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+            #tbl td, #tbl th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+        #hello {
+            font-family: Tahoma;
+            color: #262626;
+            margin-left: 15px;
+        }
+
+        #tbl tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #tbl tr:hover {
+            background-color: #ddd;
+        }
+
+        #tbl th {
+            padding-top: 12px;
+            padding-left: 10px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #FFA07A;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    @using WebApplication2.Controllers;
+
+    @{ 
+        var name = "";
+        name = Session["studentname"].ToString();
+        var text = ((MainController)this.ViewContext.Controller).getGradesOfStudent();
+    
+    }
+    <h1 id="hello">
+        hello, @name
+    </h1>
+
+    <div id="grades">
+        
+            <p id="p1"p1></p>
+               
+        </div>
+
+    <button id="logout">Log out</button>
+
+        <script>
+                    $(document).ready(function(){
+                     
+                        $.get("/Main/getGradesOfStudent", 
+                            function (data, status) {
+                                console.log(data);
+                                console.log("fac ceva aici");
+                                    $("#p1").html(data);
+                            });
+
+                        $("#logout").click(function () {
+
+                            $.get("/Main/logOut", function () {
+                                window.location.href = "/Main";
+                            })
+                        })
+                       
+            });
+
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "LoginTeacher";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+        body {
+            background-color: #ffe6ff;
+        }
+
+        #form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-style: groove;
+            border-color: #ffdacc;
+            margin-top: 100px;
+            margin-left: 230px;
+            padding-left: 360px;
+            margin-right: 300px;
+            border-radius: 10px;
+            background-color: #ffe6e6;
+        }
+
+        #t1 {
+            font-family: "Tahoma";
+            color: #262626;
+        }
+
+        .lab {
+            font-family: "Tahoma";
+            color: #262626;
+        }
+
+        #btn {
+            background-color: #FFA07A; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            margin-left: 80px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        #bby {
+            width: 200px;
+        }
+
+        #bbydiv {
+            margin-left: 1270px;
+            margin-top: 140px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="form">
+        <h2 id="t1">Login page for teacher</h2>
+        <form action="CheckLoginTeacher" method="get">
+            <p>
+                <label class="lab">Username: </label>
+                <input type="text" id="id" name="id">
+
+            </p>
+            <p>
+                <label class="lab">Password: </label>
+                <input type="password" id="passw" name="passw">
+
+            </p>
+            <p>
+
+                <input type="submit" id="btn" value="Login">
+
+            </p>
+        </form>
+    </div>
+    <div id="bbydiv">
+        @*<img src="bigboye.jpeg" id="bby">*@
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                console.log(document.getElementById("uname").innerText);
+                alert("aici");
+                $.get(
+                    "Main/CheckLoginTeacher", { uname: document.getElementById("uname").innerText, passw: document.getElementById("passw").innerText },
+                    function (data, status) {
+                        alert(data);
+                        if (data === "yas")
+                            window.location.href = "Main/TeacherPage";
+                        else
+                            alert("nope");
+                    }); //ce Dumnezeu nu iti convine?
+            });
+        });
+
+    </script>
+</body>
+</html>
+
+

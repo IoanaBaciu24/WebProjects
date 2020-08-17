@@ -1,0 +1,95 @@
+<html>
+<head></head>
+
+<body>
+
+<table id ="t1">
+    <tr>
+        <th onclick="th1()">number1</th>
+        <th onclick="th2()">some string</th>
+        <th onclick="th3()">number3</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>mirel</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>gigel</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>sorinel</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>dorel</td>
+        <td>4</td>
+    </tr>
+
+
+</table>
+
+<script>
+    var th1_flag = 1;
+    var th2_flag = 1;
+    var th3_flag = 1;
+    var table = document.getElementById("t1");
+    
+    function th1(){
+        if(th1_flag == 1)
+            sort_table(0,1);
+        else 
+            sort_table(0,-1)
+        th1_flag = -th1_flag;
+
+    }
+    function th2(){
+        if(th2_flag == 1)
+            sort_table(1,1);
+        else 
+            sort_table(1,-1)
+        th2_flag = -th2_flag;
+    }
+    function th3(){
+        if(th3_flag == 1)
+            sort_table(2,1);
+        else 
+            sort_table(2,-1)
+        th3_flag = -th3_flag;
+    }
+    function sort_table(c, s){
+        switching = true;
+        while(switching)
+        {
+            switching = false;
+            rows = table.rows
+            for(i=1;i<(rows.length-1);i++)
+            {
+                sh_switch = false;
+                x = rows[i].getElementsByTagName("td")[c];
+                y = rows[i+1].getElementsByTagName("td")[c];
+                if(s == 1){
+                    if(x.innerHTML>y.innerHTML)
+                    {sh_switch = true;break;}
+
+                }
+                else{
+                    if(x.innerHTML<y.innerHTML)
+                    {sh_switch = true;break;}
+                }
+            }
+            if(sh_switch){
+                rows[i].parentNode.insertBefore(rows[i+1], rows[i]);
+                switching = true;
+            }
+        }
+    }
+</script>
+
+</body>
+
+</html>

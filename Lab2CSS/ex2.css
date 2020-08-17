@@ -1,0 +1,30 @@
+#div2{
+    background-color: cornflowerblue;
+    position: relative;
+    top: 5px;
+    left: 5px ;
+    width: 1000px;
+    height: 200px;
+    opacity: 0,2;
+
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    border-style: hidden;
+    border-radius: 20px;
+    /*I had to use this s.t. it would go smoothly from one corner to another and it actually worked :O*/
+    transition: 2s;
+}
+
+#div2:hover{
+
+    position: relative;
+    background-color: red;
+    
+    left: 490px;
+    padding-left: -20px;
+    top:500px;
+
+   
+}
